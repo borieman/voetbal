@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 import json
 import requests
-import geopandas
+!pip install geopandas
 import streamlit as st
 from streamlit_folium import folium_static
 import folium
