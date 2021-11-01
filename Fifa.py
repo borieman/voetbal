@@ -8,7 +8,6 @@ import plotly.figure_factory as ff
 import plotly.io as pio
 pio.templates.default = 'seaborn'
 import statsmodels.api as sm
-import seaborn as sns
 
 
 
@@ -21,15 +20,11 @@ st.write("""
 """)
 
 FIFA15 = pd.read_csv('FIFA15')
-X = sm.add_constant(FIFA15["overall"])
-y = FIFA15["value_eur"]
 
-# Note the difference in argument order
-model = sm.OLS(y, X).fit()
-predictions = model.predict(X) # make the predictions by the model
 
-# Print out the statistics
-model.summary()
+fig = px.histogram(FIFA15, x="overall")
+st.plotly_chart(fig)
+
 
 
 
