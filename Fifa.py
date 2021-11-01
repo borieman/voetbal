@@ -19,6 +19,16 @@ st.write("""
 ***
 """)
 
+FIFA15 = pd.read_csv('FIFA15')
+X = sm.add_constant(FIFA15["overall"])
+y = FIFA15["value_eur"]
+
+# Note the difference in argument order
+model = sm.OLS(y, X).fit()
+predictions = model.predict(X) # make the predictions by the model
+
+# Print out the statistics
+model.summary()
 
 
 
