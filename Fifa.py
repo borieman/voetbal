@@ -22,7 +22,7 @@ st.write("""
 FIFA15 = pd.read_csv('FIFA15')
 
 
-fig = px.histogram(FIFA15, x="overall")
+fig = px.histogram(FIFA15, x="overall", nbins = 10)
 st.plotly_chart(fig)
 
 
