@@ -14,7 +14,8 @@ import numpy as np
 # import plotly.figure_factory as ff
 # import plotly.io as pio
 # pio.templates.default = 'seaborn'
-# import statsmodels.api as sm
+import statsmodels.api as sm
+import seaborn as sns
 
 
 
@@ -25,6 +26,7 @@ st.title('Fifa dashboard')
 st.write("""
 ***
 """)
+
 
 
 
