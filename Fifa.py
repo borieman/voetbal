@@ -23,6 +23,11 @@ FIFA15 = pd.read_csv('FIFA15')
 
 
 fig = px.histogram(FIFA15, x="overall", nbins = 10)
+fig.update_traces(xbins=dict( # bins used for histogram
+        start=40.0,
+        end=95.0,
+        size=5
+    ))
 st.plotly_chart(fig)
 
 
