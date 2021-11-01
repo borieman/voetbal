@@ -27,25 +27,4 @@ st.write("""
 """)
 
 
-FIFA22_map = pd.read_csv('mapdata')
 
-geo = gpd.read_file('countries2.geojson')
-countries = geo.rename(columns={'ADMIN': 'nationality'})
-
-df = gpd.GeoDataFrame(pd.merge(FIFA22_map, countries, how = 'left', on = 'nationality'))
-
-# m = folium.Map(location=[0, 0],
-#                zoom_start=2)
-
-# folium.Choropleth(geo_data=df,
-#                   name='geometry',
-#                   data=df,
-#                   columns=['nationality','overall'],
-#                   key_on='feature.properties.nationality', 
-#                   fill_color='YlGn', 
-#                   fill_opacity=0.9, 
-#                   line_opacity=0.3,
-#                   legend_name='Lagenda: Rating', 
-#                   nan_fill_color='black').add_to(m)
-
-# display(m)
