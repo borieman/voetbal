@@ -33,7 +33,7 @@ st.plotly_chart(fig)
 
 countries = json.load(open('countries2.geojson', 'r'))
 
-kaartdata = pd.read_csv('kaartdata')
+kaartdata = pd.read_csv('kaartdata.csv')
 
 kaart = px.choropleth_mapbox(kaartdata, locations='id', geojson=countries, 
                              color='overall', color_continuous_scale=[(0,"white"), (1,"green")],
