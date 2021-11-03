@@ -35,7 +35,7 @@ st.write("""
 
 # st.plotly_chart(kaart)
 
-df = pd.read_csv(df_line.csv)
+df = pd.read_csv('df_line.csv')
 fig = px.line(df, x='fifa_jaar', y=['overall', 'potential'], color='nationality')
 
 dropdown_buttons = [{'label':"All", 'method':"update", 'args':
