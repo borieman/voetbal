@@ -108,9 +108,10 @@ gekozen_landen = st.multiselect("Kies een land", lijst_landen, lijst_standaar_we
 
 # df = linedata - !geko`enLanden
 mask_countries = linedata['nationality'].isin(gekozen_landen)
-st.write(mask_countries)
+data = linedata[mask_countries]
+# st.write(mask_countries)
 
-fig = px.line(mask_countries, x='fifa_jaar', y=['overall', 'potential'], color='nationality')
+fig = px.line(data, x='fifa_jaar', y=['overall', 'potential'], color='nationality')
 
 dropdown_buttons = [{'label':"All", 'method':"update", 'args':
 [{"visible":[True]}]},
