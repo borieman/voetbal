@@ -2,6 +2,7 @@ import streamlit as st
 import pandas as pd
 import matplotlib.pyplot as plt
 import numpy as np
+import json
 import plotly.express as px
 import plotly.graph_objects as go
 import plotly.figure_factory as ff
@@ -30,6 +31,7 @@ fig.update_traces(xbins=dict( # bins used for histogram
     ))
 st.plotly_chart(fig)
 
+countries = json.load(open('countries2.geojson', 'r'))
 
 kaartdata = pd.read_csv('kaartdata')
 
