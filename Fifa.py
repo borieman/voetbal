@@ -89,7 +89,7 @@ dropdown_buttons = [{'label':"All", 'method':"update", 'args':
 {'label':"Potential", 'method':"update", 'args':
 [{"visible":[False, True]}]}]
 
-fig.update_layout({'updatemenus':[{'type': "dropdown",'x': 1.5,'y': 0.35,
+fig.update_layout({'updatemenus':[{'type': "dropdown",'x': 1.25,'y': 0.35,
 'showactive': True,'active': 0,'buttons': dropdown_buttons}]})
 
 fig.update_layout(title='<b>Overall en potential rating per fifa per land</b>', title_x= 0.5,
