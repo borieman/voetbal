@@ -101,12 +101,14 @@ st.write("""
 linedata = pd.read_csv('linedata.csv')
 
 
+
 lijst_landen = ['Argentina', 'Belgium', 'Brazil', 'England', 'France', 'Germany', 'Italy', 'Netherlands', 'Portugal', 'Spain']
 lijst_standaar_wergeven = lijst_landen
 gekozen_landen = st.multiselect("Kies een land", lijst_landen, lijst_standaar_wergeven)
 
 # df = linedata - !geko`enLanden
 mask_countries = linedata['nationality'].isin(gekozen_landen)
+st.write(mask_countries)
 
 fig = px.line(mask_countries, x='fifa_jaar', y=['overall', 'potential'], color='nationality')
 
