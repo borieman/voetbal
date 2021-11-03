@@ -160,12 +160,13 @@ fig.update_layout(title='<b>Overall en potential rating per fifa per land</b>', 
 xaxis_title='Fifa jaar', yaxis_title='Rating')
 
 
-
-st.plotly_chart(fig)
-
 lijst_landen = ['Argentina', 'Belgium', 'Brazil', 'England', 'France', 'Germany', 'Italy', 'Netherlands', 'Portugal', 'Spain']
 lijst_standaar_wergeven = 'Argentina'
 gekozen_landen = st.multiselect("Kies een land", lijst_landen, lijst_standaar_wergeven)
+
+st.plotly_chart(fig)
+
+
 
 
 
