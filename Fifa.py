@@ -42,7 +42,7 @@ linedata = pd.read_csv('linedata.csv')
 
 
 lijst_landen = ['Argentina', 'Belgium', 'Brazil', 'England', 'France', 'Germany', 'Italy', 'Netherlands', 'Portugal', 'Spain']
-gekozen_landen = st.multiselect("Kies een land", lijst_landen, lijstlanden)
+gekozen_landen = st.multiselect("Kies een land", lijst_landen, lijst_landen)
 
 line_countries = linedata['nationality'].isin(gekozen_landen)
 data = linedata[line_countries]
