@@ -21,21 +21,19 @@ st.write("""
 """)
 
 
-# countries = json.load(open('countries2.geojson', 'r'))
+countries = json.load(open('countries2.geojson', 'r'))
 
-# kaartdata = pd.read_csv('kaartdata.csv')
+kaartdata = pd.read_csv('kaartdata.csv')
 
-# kaart = px.choropleth_mapbox(kaartdata, locations='id', geojson=countries, 
-#                              color='overall', color_continuous_scale=[(0,"white"), (1,"green")],
-#                              mapbox_style='open-street-map', center={'lat': 50, 'lon':0},
-#                              zoom=0.62, opacity=0.6, hover_name='id', labels={'overall': '<b>Rating</b>'},
+kaart = px.choropleth_mapbox(kaartdata, locations='id', geojson=countries, 
+                             color='overall', color_continuous_scale=[(0,"white"), (1,"green")],
+                             mapbox_style='open-street-map', center={'lat': 50, 'lon':0},
+                             zoom=0.62, opacity=0.6, hover_name='id', labels={'overall': '<b>Rating</b>'})
 #                              category_orders={'fifa_jaar': ['2015', '2016', '2017', '2018', '2019', '2020', '2021', '2022']},
 #                              animation_frame='fifa_jaar')
-# kaart.update_layout(title='<b>KAARTGRAFIEK</b>', title_x=0.5, width=975, height=725)
-# kaart.layout.updatemenus[0].buttons[0].args[1]['frame']['duration'] = 30
-# kaart.layout.updatemenus[0].buttons[0].args[1]['transition']['duration'] = 5
+kaart.update_layout(title='<b>KAARTGRAFIEK</b>', title_x=0.5, width=975, height=725)
 
-# st.plotly_chart(kaart)
+st.plotly_chart(kaart)
 
 linedata = pd.read_csv('linedata.csv')
 
