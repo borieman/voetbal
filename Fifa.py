@@ -163,5 +163,9 @@ xaxis_title='Fifa jaar', yaxis_title='Rating')
 
 st.plotly_chart(fig)
 
+lijst_landen = ['Nederland', 'Belgie']
+lijst_standaar_wergeven = 'Nederland'
+gekozen_landen = st.multiselect("Kies een land", lijst_landen, lijst_standaar_wergeven)
+
 
 
