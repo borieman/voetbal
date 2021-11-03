@@ -37,64 +37,129 @@ st.write("""
 
 # st.plotly_chart(kaart)
 
-df = pd.read_csv('df_line.csv')
-fig = px.line(df, x='fifa_jaar', y=['overall', 'potential'], color='nationality')
+# df = pd.read_csv('df_line.csv')
+# fig = px.line(df, x='fifa_jaar', y=['overall', 'potential'], color='nationality')
+
+# dropdown_buttons = [{'label':"All", 'method':"update", 'args':
+#                      [{"visible":[True]}]},
+#                     {'label':"Argentina", 'method':"update", 'args':
+#                      [{"visible":[True,True,False,False,False,False,False,False,False,False,False,False,
+#                                   False,False,False,False,False,False,False,False,False,False,False,False]}]},
+#                     {'label':"Belgium", 'method':"update", 'args':
+#                      [{"visible":[False,False,True,True,False,False,False,False,False,False,False,False,
+#                                   False,False,False,False,False,False,False,False,False,False,False,False]}]},
+#                     {'label':"Brazil", 'method':"update", 'args':
+#                      [{"visible":[False,False,False,False,True,True,False,False,False,False,False,False,
+#                                   False,False,False,False,False,False,False,False,False,False,False,False]}]},
+#                     {'label':"Colombia", 'method':"update", 'args':
+#                      [{"visible":[False,False,False,False,False,False,True,True,False,False,False,False,
+#                                   False,False,False,False,False,False,False,False,False,False,False,False]}]},
+#                     {'label':"England", 'method':"update", 'args':
+#                      [{"visible":[False,False,False,False,False,False,False,False,True,True,False,False,
+#                                   False,False,False,False,False,False,False,False,False,False,False,False]}]},
+#                     {'label':"France", 'method':"update", 'args':
+#                      [{"visible":[False,False,False,False,False,False,False,False,False,False,True,True,
+#                                   False,False,False,False,False,False,False,False,False,False,False,False]}]},
+#                     {'label':"Germany", 'method':"update", 'args':
+#                      [{"visible":[False,False,False,False,False,False,False,False,False,False,False,False,
+#                                   True,True,False,False,False,False,False,False,False,False,False,False]}]},
+#                     {'label':"Italy", 'method':"update", 'args':
+#                      [{"visible":[False,False,False,False,False,False,False,False,False,False,False,False,
+#                                   False,False,True,True,False,False,False,False,False,False,False,False]}]},
+#                     {'label':"Netherlands", 'method':"update", 'args':
+#                      [{"visible":[False,False,False,False,False,False,False,False,False,False,False,False,
+#                                   False,False,False,False,True,True,False,False,False,False,False,False]}]},
+#                     {'label':"Portugal", 'method':"update", 'args':
+#                      [{"visible":[False,False,False,False,False,False,False,False,False,False,False,False,
+#                                   False,False,False,False,False,False,True,True,False,False,False,False]}]},
+#                     {'label':"Serbia", 'method':"update", 'args':
+#                      [{"visible":[False,False,False,False,False,False,False,False,False,False,False,False,
+#                                   False,False,False,False,False,False,False,False,True,True,False,False]}]},
+#                     {'label':"Spain", 'method':"update", 'args':
+#                      [{"visible":[False,False,False,False,False,False,False,False,False,False,False,False,
+#                                   False,False,False,False,False,False,False,False,False,False,True,True]}]}]
+
+# dropdown_buttons1 = [{'label':"All", 'method':"update", 'args':
+#                       [{"visible":[True]}]},
+#                      {'label':"Overall", 'method':"update", 'args':
+#                       [{"visible":[True, False]}]},
+#                      {'label':"Potential", 'method':"update", 'args':
+#                       [{"visible":[False, True]}]}]
+
+# # fig.update_layout({'updatemenus':[{'active':0, 'buttons':dropdown_buttons}]})
+# # fig.update_layout({'updatemenus':[{'active':0, 'buttons':dropdown_buttons1}]})
+
+# fig.update_layout({'updatemenus':[{'type': "dropdown",'x': -0.09,'y': 1,
+#                                    'showactive': True,'active': 0,'buttons': dropdown_buttons}]})
+
+# fig.update_layout(title='<b>Overall en potential rating per fifa per land</b>', title_x= 0.5,
+#                   xaxis_title='Fifa jaar',
+#                   yaxis_title='Rating')
+
+# st.plotly_chart(fig)
+
+linedata = pd.read_csv('linedata.csv')
+
+fig = px.line(linedata, x='fifa_jaar', y=['overall', 'potential'], color='nationality')
 
 dropdown_buttons = [{'label':"All", 'method':"update", 'args':
-                     [{"visible":[True]}]},
-                    {'label':"Argentina", 'method':"update", 'args':
-                     [{"visible":[True,True,False,False,False,False,False,False,False,False,False,False,
-                                  False,False,False,False,False,False,False,False,False,False,False,False]}]},
-                    {'label':"Belgium", 'method':"update", 'args':
-                     [{"visible":[False,False,True,True,False,False,False,False,False,False,False,False,
-                                  False,False,False,False,False,False,False,False,False,False,False,False]}]},
-                    {'label':"Brazil", 'method':"update", 'args':
-                     [{"visible":[False,False,False,False,True,True,False,False,False,False,False,False,
-                                  False,False,False,False,False,False,False,False,False,False,False,False]}]},
-                    {'label':"Colombia", 'method':"update", 'args':
-                     [{"visible":[False,False,False,False,False,False,True,True,False,False,False,False,
-                                  False,False,False,False,False,False,False,False,False,False,False,False]}]},
-                    {'label':"England", 'method':"update", 'args':
-                     [{"visible":[False,False,False,False,False,False,False,False,True,True,False,False,
-                                  False,False,False,False,False,False,False,False,False,False,False,False]}]},
-                    {'label':"France", 'method':"update", 'args':
-                     [{"visible":[False,False,False,False,False,False,False,False,False,False,True,True,
-                                  False,False,False,False,False,False,False,False,False,False,False,False]}]},
-                    {'label':"Germany", 'method':"update", 'args':
-                     [{"visible":[False,False,False,False,False,False,False,False,False,False,False,False,
-                                  True,True,False,False,False,False,False,False,False,False,False,False]}]},
-                    {'label':"Italy", 'method':"update", 'args':
-                     [{"visible":[False,False,False,False,False,False,False,False,False,False,False,False,
-                                  False,False,True,True,False,False,False,False,False,False,False,False]}]},
-                    {'label':"Netherlands", 'method':"update", 'args':
-                     [{"visible":[False,False,False,False,False,False,False,False,False,False,False,False,
-                                  False,False,False,False,True,True,False,False,False,False,False,False]}]},
-                    {'label':"Portugal", 'method':"update", 'args':
-                     [{"visible":[False,False,False,False,False,False,False,False,False,False,False,False,
-                                  False,False,False,False,False,False,True,True,False,False,False,False]}]},
-                    {'label':"Serbia", 'method':"update", 'args':
-                     [{"visible":[False,False,False,False,False,False,False,False,False,False,False,False,
-                                  False,False,False,False,False,False,False,False,True,True,False,False]}]},
-                    {'label':"Spain", 'method':"update", 'args':
-                     [{"visible":[False,False,False,False,False,False,False,False,False,False,False,False,
-                                  False,False,False,False,False,False,False,False,False,False,True,True]}]}]
+[{"visible":[True]}]},
+{'label':"Argentina", 'method':"update", 'args':
+[{"visible":[True,True,False,False,False,False,False,False,False,False,False,False,
+False,False,False,False,False,False,False,False]}]},
+{'label':"Belgium", 'method':"update", 'args':
+[{"visible":[False,False,True,True,False,False,False,False,False,False,False,False,
+False,False,False,False,False,False,False,False]}]},
+{'label':"Brazil", 'method':"update", 'args':
+[{"visible":[False,False,False,False,True,True,False,False,False,False,False,False,
+False,False,False,False,False,False,False,False]}]},
+{'label':"England", 'method':"update", 'args':
+[{"visible":[False,False,False,False,False,False,True,True,False,False,False,False,
+False,False,False,False,False,False,False,False]}]},
+{'label':"France", 'method':"update", 'args':
+[{"visible":[False,False,False,False,False,False,False,False,True,True,False,False,
+False,False,False,False,False,False,False,False]}]},
+{'label':"Germany", 'method':"update", 'args':
+[{"visible":[False,False,False,False,False,False,False,False,False,False,True,True,
+False,False,False,False,False,False,False,False]}]},
+{'label':"Italy", 'method':"update", 'args':
+[{"visible":[False,False,False,False,False,False,False,False,False,False,False,False,
+True,True,False,False,False,False,False,False]}]},
+{'label':"Netherlands", 'method':"update", 'args':
+[{"visible":[False,False,False,False,False,False,False,False,False,False,False,False,
+False,False,True,True,False,False,False,False]}]},
+{'label':"Portugal", 'method':"update", 'args':
+[{"visible":[False,False,False,False,False,False,False,False,False,False,False,False,
+False,False,False,False,True,True,False,False]}]},
+{'label':"Spain", 'method':"update", 'args':
+[{"visible":[False,False,False,False,False,False,False,False,False,False,False,False,
+False,False,False,False,False,False,True,True]}]}]
+
+
 
 dropdown_buttons1 = [{'label':"All", 'method':"update", 'args':
-                      [{"visible":[True]}]},
-                     {'label':"Overall", 'method':"update", 'args':
-                      [{"visible":[True, False]}]},
-                     {'label':"Potential", 'method':"update", 'args':
-                      [{"visible":[False, True]}]}]
+[{"visible":[True]}]},
+{'label':"Overall", 'method':"update", 'args':
+[{"visible":[True, False]}]},
+{'label':"Potential", 'method':"update", 'args':
+[{"visible":[False, True]}]}]
+
+
 
 # fig.update_layout({'updatemenus':[{'active':0, 'buttons':dropdown_buttons}]})
 # fig.update_layout({'updatemenus':[{'active':0, 'buttons':dropdown_buttons1}]})
 
+
+
 fig.update_layout({'updatemenus':[{'type': "dropdown",'x': -0.09,'y': 1,
-                                   'showactive': True,'active': 0,'buttons': dropdown_buttons}]})
+'showactive': True,'active': 0,'buttons': dropdown_buttons1}]})
+
+
 
 fig.update_layout(title='<b>Overall en potential rating per fifa per land</b>', title_x= 0.5,
-                  xaxis_title='Fifa jaar',
-                  yaxis_title='Rating')
+xaxis_title='Fifa jaar', yaxis_title='Rating')
+
+
 
 st.plotly_chart(fig)
 
