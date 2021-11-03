@@ -9,7 +9,7 @@ import plotly.figure_factory as ff
 import plotly.io as pio
 pio.templates.default = 'seaborn'
 import statsmodels.api as sm
-streamlit run your_script.py --server.maxUploadSize=1028
+# streamlit run your_script.py --server.maxUploadSize=1028
 
 
 #st.set_page_config(layout="wide")
@@ -32,6 +32,8 @@ kaart = px.choropleth_mapbox(kaartdata, locations='id', geojson=countries,
                              category_orders={'fifa_jaar': ['2015', '2016', '2017', '2018', '2019', '2020', '2021', '2022']},
                              animation_frame='fifa_jaar')
 kaart.update_layout(title='<b>KAARTGRAFIEK</b>', title_x=0.5, width=975, height=725)
+kaart.layout.updatemenus[0].buttons[0].args[1]['frame']['duration'] = 30
+kaart.layout.updatemenus[0].buttons[0].args[1]['transition']['duration'] = 5
 
 st.plotly_chart(kaart)
 
