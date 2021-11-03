@@ -10,4 +10,4 @@ plotly
 folium
 scipy
 statsmodels
-streamlit run .py--server.maxUploadSize=250
+streamlit run Fifa.py--server.maxUploadSize=250
