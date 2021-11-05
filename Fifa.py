@@ -17,7 +17,8 @@ import statsmodels.api as sm
 st.title('Fifa dashboard')
 
 st.markdown("""
-In dit dashboard hebben wij onderzocht ... """)
+In dit dashboard hebben wij onderzocht ... . We hebben dit gedaan op basis van FIFA 15 t/m FIFA 22. 
+Hiervoor hebben we https://www.kaggle.com/stefanoleone992/fifa-21-complete-player-dataset gebruikt voor de data.""")
 
 st.write("""
 ***
@@ -153,5 +154,6 @@ st.write("""
 st.markdown("""
 Gemaakt door:
 Martijn Draper 
+\n
 Boris van Dam 500831201 """)
 
