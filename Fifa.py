@@ -105,8 +105,8 @@ st.plotly_chart(fig)
 
 #histogram
 
-Overall = pd.read_csv('histover.csv')
-Potential = pd.read_csv('histpot.csv')
+dfover = pd.read_csv('histover.csv')
+dfpot = pd.read_csv('histpot.csv')
 
 plot = go.Figure(data=[go.Histogram(
     name = 'Overall',
