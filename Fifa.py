@@ -134,7 +134,7 @@ plot.update_layout(
                 dict(label="Potential",
                      method="update",
                      args=[{"visible": [False, True]},
-                           ]),'x': 1.23,'y': 0.30
+                           ]),
             ]),
         )
     ])
