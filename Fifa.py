@@ -139,7 +139,7 @@ plot.update_layout(
         )
     ])
 
-plot.update_layout(title='<b>Waarde van spelers</b>', title_x= 0.5,
+plot.update_layout(title="<b>Waarde van spelers voor alle FIFA's</b>", title_x= 0.5,
                   xaxis_title='Waarde van speler',
                   yaxis_title='Aantal spelers')
   
