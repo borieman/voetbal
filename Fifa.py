@@ -47,6 +47,48 @@ data = linedata[line_countries]
 
 fig = px.line(data, x='fifa_jaar', y=['overall', 'potential'], color='nationality')
 
+#histogram
+
+dfover = pd.read_csv('histover.csv')
+dfpot = pd.read_csv('histpot.csv')
+
+plot = go.Figure(data=[go.Histogram(
+    name = 'dfover',
+    x= dfover['value_eur']
+),
+    go.Histogram(
+    name = 'dfpot',
+    x=dfpot['value_eur']
+)
+])
+
+plot.update_layout(
+    updatemenus=[
+        dict(
+            active=0,
+            buttons=list([
+                dict(label="Overall en Potential",
+                     method="update",
+                     args=[{"visible": [True, True]},
+                           ]),
+                dict(label="Overall",
+                     method="update",
+                     args=[{"visible": [True, False]},
+                           ]),
+                dict(label="Potential",
+                     method="update",
+                     args=[{"visible": [False, True]},
+                           ]),
+            ]),
+        )
+    ])
+
+plot.update_layout(title='<b>Waarde van spelers</b>', title_x= 0.5,
+                  xaxis_title='Waarde van speler',
+                  yaxis_title='Aantal spelers')
+  
+st.plotly_chart(plot)
+
 # dropdown_buttons = [{'label':"All", 'method':"update", 'args':
 # [{"visible":[True]}]},
 # {'label':"Argentina", 'method':"update", 'args':
