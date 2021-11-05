@@ -16,9 +16,14 @@ import statsmodels.api as sm
 
 st.title('Fifa dashboard')
 
+st.markdown("""
+In dit dashboard hebben wij onderzocht ... """)
+
 st.write("""
 ***
 """)
+
+
 
 
 # countries = json.load(open('countries2.geojson', 'r'))
@@ -47,47 +52,6 @@ data = linedata[line_countries]
 
 fig = px.line(data, x='fifa_jaar', y=['overall', 'potential'], color='nationality')
 
-#histogram
-
-dfover = pd.read_csv('histover.csv')
-dfpot = pd.read_csv('histpot.csv')
-
-plot = go.Figure(data=[go.Histogram(
-    name = 'dfover',
-    x= dfover['value_eur']
-),
-    go.Histogram(
-    name = 'dfpot',
-    x=dfpot['value_eur']
-)
-])
-
-plot.update_layout(
-    updatemenus=[
-        dict(
-            active=0,
-            buttons=list([
-                dict(label="Overall en Potential",
-                     method="update",
-                     args=[{"visible": [True, True]},
-                           ]),
-                dict(label="Overall",
-                     method="update",
-                     args=[{"visible": [True, False]},
-                           ]),
-                dict(label="Potential",
-                     method="update",
-                     args=[{"visible": [False, True]},
-                           ]),
-            ]),
-        )
-    ])
-
-plot.update_layout(title='<b>Waarde van spelers</b>', title_x= 0.5,
-                  xaxis_title='Waarde van speler',
-                  yaxis_title='Aantal spelers')
-  
-st.plotly_chart(plot)
 
 # dropdown_buttons = [{'label':"All", 'method':"update", 'args':
 # [{"visible":[True]}]},
@@ -138,7 +102,56 @@ xaxis_title='Fifa jaar', yaxis_title='Rating')
 
 st.plotly_chart(fig)
 
+#histogram
+
+dfover = pd.read_csv('histover.csv')
+dfpot = pd.read_csv('histpot.csv')
+
+plot = go.Figure(data=[go.Histogram(
+    name = 'dfover',
+    x= dfover['value_eur']
+),
+    go.Histogram(
+    name = 'dfpot',
+    x=dfpot['value_eur']
+)
+])
+
+plot.update_layout(
+    updatemenus=[
+        dict(
+            active=0,
+            buttons=list([
+                dict(label="Overall en Potential",
+                     method="update",
+                     args=[{"visible": [True, True]},
+                           ]),
+                dict(label="Overall",
+                     method="update",
+                     args=[{"visible": [True, False]},
+                           ]),
+                dict(label="Potential",
+                     method="update",
+                     args=[{"visible": [False, True]},
+                           ]),
+            ]),
+        )
+    ])
+
+plot.update_layout(title='<b>Waarde van spelers</b>', title_x= 0.5,
+                  xaxis_title='Waarde van speler',
+                  yaxis_title='Aantal spelers')
+  
+st.plotly_chart(plot)
 
 
+st.write("""
+***
+""")
 
+
+st.markdown("""
+Gemaakt door:
+Martijn Draper 
+Boris van Dam 500831201 """)
 
