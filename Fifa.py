@@ -153,6 +153,7 @@ st.write("""
 
 st.markdown("""
 Gemaakt door:
+\n
 Martijn Draper 
 \n
 Boris van Dam 500831201 """)
