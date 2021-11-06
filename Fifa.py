@@ -149,7 +149,7 @@ st.plotly_chart(plot)
 FIFA15_23 = pd.read_csv('FIFA15LIN.csv')
 FIFA15_23['bestfit'] = sm.OLS(FIFA15_23['value_eur'],sm.add_constant(FIFA15_23['overall'])).fit().fittedvalues
 fig15=go.Figure()
-fig15.add_trace(go.Scatter(x=FIFA15_23['overall'], y=FIFA15_23['value_eur'].values, mode='markers', title = <b>'Lineaire regressie van overall rating en waarde van spelers (FIFA 15)<b>))
+fig15.add_trace(go.Scatter(x=FIFA15_23['overall'], y=FIFA15_23['value_eur'].values, mode='markers', title = '<b>Lineaire regressie van overall rating en waarde van spelers (FIFA 15)<b>'))
 fig15.add_trace(go.Scatter(name='Lineair regressielijn', x=FIFA15_23['overall'], y=FIFA15_23['bestfit'], mode='lines'))
 
 
