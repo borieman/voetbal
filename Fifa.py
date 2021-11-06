@@ -9,7 +9,6 @@ import plotly.figure_factory as ff
 import plotly.io as pio
 pio.templates.default = 'seaborn'
 import statsmodels.api as sm
-# streamlit run your_script.py --server.maxUploadSize=1028
 
 
 #st.set_page_config(layout="wide")
@@ -144,6 +143,20 @@ plot.update_layout(title="<b>Waarde van spelers voor alle FIFA's</b>", title_x= 
                   yaxis_title='Aantal spelers')
   
 st.plotly_chart(plot)
+
+#fifa 15 lineair regressie
+
+FIFA15_23 = pd.read_csv('FIFA15LIN.csv')
+FIFA15_23['bestfit'] = sm.OLS(FIFA15_23['value_eur'],sm.add_constant(FIFA15_23['overall'])).fit().fittedvalues
+fig15=go.Figure()
+fig15.add_trace(go.Scatter(name='X vs Y', x=FIFA15_23['overall'], y=FIFA15_23['value_eur'].values, mode='markers'))
+fig15.add_trace(go.Scatter(name='line of best fit', x=FIFA15_23['overall'], y=FIFA15_23['bestfit'], mode='lines'))
+
+
+# plotly figure layout
+fig15.update_layout(xaxis_title = 'X', yaxis_title = 'Y')
+
+st.plotly_chart(fig15)
 
 
 st.write("""
