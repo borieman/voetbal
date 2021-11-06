@@ -154,7 +154,7 @@ fig15.add_trace(go.Scatter(name='Lineair regressielijn', x=FIFA15_23['overall'],
 
 
 # plotly figure layout
-fig15.update_layout(title = 'x', xaxis_title = 'Overall rating', yaxis_title = 'Waarde speler in miljoenen')
+fig15.update_layout(title = 'Lineaire regressie van overall rating en de waarde van speler (FIFA15)', xaxis_title = 'Overall rating', yaxis_title = 'Waarde speler in miljoenen')
 
 st.plotly_chart(fig15)
 
