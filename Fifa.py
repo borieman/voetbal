@@ -144,7 +144,7 @@ plot.update_layout(title="<b>Waarde van spelers voor alle FIFA's</b>", title_x= 
   
 st.plotly_chart(plot)
 
-#fifa 15 lineair regressie
+#lineair regressie
 
 FIFA15_23 = pd.read_csv('FIFA15LIN.csv')
 FIFA22_23 = pd.read_csv('FIFA22LIN.csv')
@@ -180,7 +180,7 @@ lin123.update_layout(
         dict(
             active=0,
             buttons=list([
-                dict(label="FIFA15 & FIFA16",
+                dict(label="FIFA15 & FIFA22",
                      method="update",
                      args=[{"visible": [True, True, True, True, True, True]},
                           ]),
@@ -197,22 +197,12 @@ lin123.update_layout(
         x= 1.2,y= 0.8)
     ])
         
-lin123.update_layout(title='<b>Waarde van spelers</b>', title_x= 0.5,
+lin123.update_layout(title='<b>Lineaire regressie overall rating en waarde speler FIFA15 & FIFA22</b>', title_x= 0.5,
                   xaxis_title='Waarde van speler',
                   yaxis_title='Aantal spelers', width = 1000)
 
 st.plotly_chart(lin123)
 
-# FIFA15_23['bestfit'] = sm.OLS(FIFA15_23['value_eur'],sm.add_constant(FIFA15_23['overall'])).fit().fittedvalues
-# fig15=go.Figure()
-# fig15.add_trace(go.Scatter(name='',x=FIFA15_23['overall'], y=FIFA15_23['value_eur'].values, mode='markers'))
-# fig15.add_trace(go.Scatter(name='Lineair regressielijn', x=FIFA15_23['overall'], y=FIFA15_23['bestfit'], mode='lines'))
-
-
-# # plotly figure layout
-# fig15.update_layout(title = '<b>Lineaire regressie van overall rating en de waarde van speler (FIFA15)<b>', xaxis_title = 'Overall rating', yaxis_title = 'Waarde speler in miljoenen')
-
-# st.plotly_chart(fig15)
 
 
 st.write("""
