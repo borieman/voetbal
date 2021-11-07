@@ -199,7 +199,7 @@ lin123.update_layout(
         
 lin123.update_layout(title='<b>Waarde van spelers</b>', title_x= 0.5,
                   xaxis_title='Waarde van speler',
-                  yaxis_title='Aantal spelers', width = 600)
+                  yaxis_title='Aantal spelers', width = 1000)
 
 st.plotly_chart(lin123)
 
