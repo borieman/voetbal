@@ -201,7 +201,7 @@ lin123.update_layout(title='<b>Waarde van spelers</b>', title_x= 0.5,
                   xaxis_title='Waarde van speler',
                   yaxis_title='Aantal spelers')
 
-st.plotly_chart(lin123)
+st.plotly_chart(lin123, width = 600)
 
 # FIFA15_23['bestfit'] = sm.OLS(FIFA15_23['value_eur'],sm.add_constant(FIFA15_23['overall'])).fit().fittedvalues
 # fig15=go.Figure()
@@ -212,7 +212,7 @@ st.plotly_chart(lin123)
 # # plotly figure layout
 # fig15.update_layout(title = '<b>Lineaire regressie van overall rating en de waarde van speler (FIFA15)<b>', xaxis_title = 'Overall rating', yaxis_title = 'Waarde speler in miljoenen')
 
-# st.plotly_chart(fig15, width = 600)
+# st.plotly_chart(fig15)
 
 
 st.write("""
