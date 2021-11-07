@@ -198,8 +198,8 @@ lin123.update_layout(
     ])
         
 lin123.update_layout(title='<b>Lineaire regressie overall rating en waarde speler FIFA15 & FIFA22</b>', title_x= 0.5,
-                  xaxis_title='Waarde van speler',
-                  yaxis_title='Aantal spelers', width = 1000)
+                  xaxis_title='Overall rating',
+                  yaxis_title='Waarde speler', width = 1000)
 
 st.plotly_chart(lin123)
 
