@@ -11,7 +11,7 @@ pio.templates.default = 'seaborn'
 import statsmodels.api as sm
 
 
-st.beta_set_page_config(layout = "wide")
+# st.beta_set_page_config(layout = "wide")
 
 st.title('Fifa dashboard')
 
