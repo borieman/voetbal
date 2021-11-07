@@ -212,7 +212,7 @@ st.plotly_chart(lin123)
 # # plotly figure layout
 # fig15.update_layout(title = '<b>Lineaire regressie van overall rating en de waarde van speler (FIFA15)<b>', xaxis_title = 'Overall rating', yaxis_title = 'Waarde speler in miljoenen')
 
-# st.plotly_chart(fig15)
+# st.plotly_chart(fig15, width = 600)
 
 
 st.write("""
