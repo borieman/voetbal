@@ -183,7 +183,7 @@ lin123.update_layout(
                 dict(label="FIFA15 & FIFA22",
                      method="update",
                      args=[{"visible": [True, True, True, True, True, True]},
-                          ], title = 'x'),
+                          ]),
                 dict(label="FIFA15",
                      method="update",
                      args=[{"visible": [True, False, True, False, True, False]},
