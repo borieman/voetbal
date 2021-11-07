@@ -194,7 +194,7 @@ lin123.update_layout(
                             ]),
                 
             ]),
-        x= 1.2,y= 0.8)
+        x= 1.3,y= 0.4)
     ])
         
 lin123.update_layout(title='<b>Lineaire regressie overall rating en waarde speler FIFA15 & FIFA22</b>', title_x= 0.5,
