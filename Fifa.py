@@ -152,6 +152,10 @@ FIFA22_23 = pd.read_csv('FIFA22LIN.csv')
 punt1 = pd.DataFrame({'overall': [93], 'value_eur': [54000000]})
 punt2 = pd.DataFrame({'overall': [93], 'value_eur': [116000000]})
 
+FIFA15_23['bestfit'] = sm.OLS(FIFA15_23['value_eur'],sm.add_constant(FIFA15_23['overall'])).fit().fittedvalues
+FIFA22_23['bestfit'] = sm.OLS(FIFA22_23['value_eur'],sm.add_constant(FIFA22_23['overall'])).fit().fittedvalues
+
+
 lin123 = go.Figure(data=[go.Scatter(
     name = 'FIFA15',
     x= FIFA15_23['overall'], y = FIFA15_23['value_eur'], mode='markers'
