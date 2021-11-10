@@ -58,8 +58,8 @@ xaxis_title='Fifa jaar', yaxis_title='Rating')
 st.plotly_chart(fig)
               
 #boxplot
-    elif page == 'Boxplot':
-        boxdata = pd.read_csv('boxdata.csv')
+elif page == 'Boxplot':
+    boxdata = pd.read_csv('boxdata.csv')
 
 box = px.box(boxdata, x='age', y='nationality', color='soort')
 box.update_layout(title='<b>Spreiding leeftijd Fifa 2022 voor overall en potential</b>', title_x= 0.5,
