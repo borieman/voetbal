@@ -26,11 +26,11 @@ st.write("""
 page_names = ['Hoofdmenu', 'Lijngrafiek', 'Boxplot', 'Kaartgrafiek', 'Polar chart', 'Histogram', 'Lineaire Regressie']
 page = st.sidebar.radio('Menu', page_names, index=1)
 
-if page == 'Hoofdmenu':
-    st.subheader('HIER KOMT EEN SAMENVATTING OF CONCLUSIE')
+# if page == 'Hoofdmenu':
+#     st.subheader('HIER KOMT EEN SAMENVATTING OF CONCLUSIE')
 
 #Lijngrafiek    
-if page == 'Lijngrafiek':
+# if page == 'Lijngrafiek':
     linedata = pd.read_csv('linedata.csv')
 
 lijst_landen = ['Argentina', 'Belgium', 'Brazil', 'England', 'France', 'Germany', 'Italy', 'Netherlands', 'Portugal', 'Spain']
@@ -58,7 +58,7 @@ xaxis_title='Fifa jaar', yaxis_title='Rating')
 st.plotly_chart(fig)
               
 #boxplot
-if page == 'Boxplot':
+# if page == 'Boxplot':
     boxdata = pd.read_csv('boxdata.csv')
 
 box = px.box(boxdata, x='age', y='nationality', color='soort')
@@ -67,18 +67,18 @@ box.update_layout(title='<b>Spreiding leeftijd Fifa 2022 voor overall en potenti
 st.plotly_chart(box)            
 
 #Kaart
-if page == 'Kaartgrafiek':
+# if page == 'Kaartgrafiek':
     st.write('Die kaart komt later wel')   
               
 #polar chart
-if page == 'Polar chart':
-    st.subheader('Polar chart')
-    st.write('moet nog komen!')              
+# if page == 'Polar chart':
+#     st.subheader('Polar chart')
+#     st.write('moet nog komen!')              
               
 #histogram
-if page == 'Histogram':
-    dfover = pd.read_csv('histover.csv')
-dfpot = pd.read_csv('histpot.csv')
+# if page == 'Histogram':
+#     dfover = pd.read_csv('histover.csv')
+# dfpot = pd.read_csv('histpot.csv')
 
 plot = go.Figure(data=[go.Histogram(
     name = 'Overall',
@@ -118,7 +118,7 @@ plot.update_layout(title="<b>Waarde van spelers voor alle FIFA's</b>", title_x= 
 st.plotly_chart(plot)
 
 #lineair regressie
-if page == 'Lineaire Regressie':
+# if page == 'Lineaire Regressie':
     FIFA15_23 = pd.read_csv('FIFA15LIN.csv')
 FIFA22_23 = pd.read_csv('FIFA22LIN.csv')
 
