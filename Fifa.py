@@ -29,8 +29,11 @@ In dit dashboard hebben wij onderzocht welke aspecten/eigenschappen bijdragen aa
 Tijdens het onderzoek hebben wij ons gefocust op de 23 beste spelers van de beste 10 landen. 
 We hebben gekeken naar zowel overall rating als potential rating. Voor het onderzoek hebben wij gebruik gemaakt van de datasets van FIFA 15 t/m FIFA 22. 
 Uit het onderzoek is naar voren gekomen dat de volgende aspecten/eigenschappen voorkomen bij goede voetballers (in fifa):
+\n
 •Afkostmig uit Argentinië, België, Brazilië, Engeland, Frankrijk, Duitsland, Italië, Nederland, Portugal of Spanje.
+\n
 •Een leeftijd rond de 30. De overall rating van oudere spelers is hoger dan die van jongere spelers (wel hebben jongere spelers een hoge potential rating).
+\n
 •Een hoge waarde. Er is een verband tussen overall rating en waarde van een speler. """)
 
 #Lijngrafiek    
