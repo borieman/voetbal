@@ -23,29 +23,16 @@ st.write("""
 ***
 """)
 
-page_names = ['Hoofdmenu', 'Lijngrafiek', 'Boxplot', 'Kaartgrafiek', 'Polar chart']
+page_names = ['Hoofdmenu', 'Lijngrafiek', 'Boxplot', 'Kaartgrafiek', 'Polar chart', 'Histogram', 'Lineaire Regressie]
 page = st.sidebar.radio('Menu', page_names, index=1)
 
+if page == 'Hoofdmenu':
+    st.subheader('HIER KOMT EEN SAMENVATTING OF CONCLUSIE')
 
-
-
-# countries = json.load(open('countries2.geojson', 'r'))
-
-# kaartdata = pd.read_csv('kaartdata.csv')
-
-# kaart = px.choropleth_mapbox(kaartdata, locations='id', geojson=countries, 
-#                              color='overall', color_continuous_scale=[(0,"white"), (1,"green")],
-#                              mapbox_style='open-street-map', center={'lat': 50, 'lon':0},
-#                              zoom=0.62, opacity=0.6, hover_name='id', labels={'overall': '<b>Rating</b>'})
-# #                              category_orders={'fifa_jaar': ['2015', '2016', '2017', '2018', '2019', '2020', '2021', '2022']},
-# #                              animation_frame='fifa_jaar')
-# kaart.update_layout(title='<b>KAARTGRAFIEK</b>', title_x=0.5, width=975, height=725)
-
-# st.plotly_chart(kaart)
-
+#Lijngrafiek    
+elif page == 'Lijngrafiek':
+              
 linedata = pd.read_csv('linedata.csv')
-
-
 
 lijst_landen = ['Argentina', 'Belgium', 'Brazil', 'England', 'France', 'Germany', 'Italy', 'Netherlands', 'Portugal', 'Spain']
 gekozen_landen = st.multiselect("Kies een land", lijst_landen, lijst_landen)
@@ -54,40 +41,6 @@ line_countries = linedata['nationality'].isin(gekozen_landen)
 data = linedata[line_countries]
 
 fig = px.line(data, x='fifa_jaar', y=['overall', 'potential'], color='nationality')
-
-
-# dropdown_buttons = [{'label':"All", 'method':"update", 'args':
-# [{"visible":[True]}]},
-# {'label':"Argentina", 'method':"update", 'args':
-# [{"visible":[True,True,False,False,False,False,False,False,False,False,False,False,
-# False,False,False,False,False,False,False,False]}]},
-# {'label':"Belgium", 'method':"update", 'args':
-# [{"visible":[False,False,True,True,False,False,False,False,False,False,False,False,
-# False,False,False,False,False,False,False,False]}]},
-# {'label':"Brazil", 'method':"update", 'args':
-# [{"visible":[False,False,False,False,True,True,False,False,False,False,False,False,
-# False,False,False,False,False,False,False,False]}]},
-# {'label':"England", 'method':"update", 'args':
-# [{"visible":[False,False,False,False,False,False,True,True,False,False,False,False,
-# False,False,False,False,False,False,False,False]}]},
-# {'label':"France", 'method':"update", 'args':
-# [{"visible":[False,False,False,False,False,False,False,False,True,True,False,False,
-# False,False,False,False,False,False,False,False]}]},
-# {'label':"Germany", 'method':"update", 'args':
-# [{"visible":[False,False,False,False,False,False,False,False,False,False,True,True,
-# False,False,False,False,False,False,False,False]}]},
-# {'label':"Italy", 'method':"update", 'args':
-# [{"visible":[False,False,False,False,False,False,False,False,False,False,False,False,
-# True,True,False,False,False,False,False,False]}]},
-# {'label':"Netherlands", 'method':"update", 'args':
-# [{"visible":[False,False,False,False,False,False,False,False,False,False,False,False,
-# False,False,True,True,False,False,False,False]}]},
-# {'label':"Portugal", 'method':"update", 'args':
-# [{"visible":[False,False,False,False,False,False,False,False,False,False,False,False,
-# False,False,False,False,True,True,False,False]}]},
-# {'label':"Spain", 'method':"update", 'args':
-# [{"visible":[False,False,False,False,False,False,False,False,False,False,False,False,
-# False,False,False,False,False,False,True,True]}]}]
 
 dropdown_buttons = [{'label':"All", 'method':"update", 'args':
 [{"visible":[True]}]},
@@ -104,8 +57,27 @@ xaxis_title='Fifa jaar', yaxis_title='Rating')
 
 
 st.plotly_chart(fig)
+              
+#boxplot
+elif page == 'Boxplot':
+    boxdata = pd.read_csv('boxdata.csv')
 
+    box = px.box(boxdata, x='age', y='nationality', color='soort')
+    box.update_layout(title='<b>Spreiding leeftijd Fifa 2022 voor overall en potential</b>', title_x= 0.5,
+                      xaxis_title='Leeftijd', yaxis_title='Landen', height=825, width=1475)
+    st.plotly_chart(box)            
+
+#Kaart
+elif page == 'Kaartgrafiek':
+    st.write('Die kaart komt later wel')   
+              
+#polar chart
+elif page == 'Polar chart':
+    st.subheader('Polar chart')
+    st.write('moet nog komen!')              
+              
 #histogram
+elif page == 'Histogram':
 
 dfover = pd.read_csv('histover.csv')
 dfpot = pd.read_csv('histpot.csv')
@@ -148,7 +120,7 @@ plot.update_layout(title="<b>Waarde van spelers voor alle FIFA's</b>", title_x= 
 st.plotly_chart(plot)
 
 #lineair regressie
-
+elif page == 'Lineaire Regressie':
 FIFA15_23 = pd.read_csv('FIFA15LIN.csv')
 FIFA22_23 = pd.read_csv('FIFA22LIN.csv')
 
