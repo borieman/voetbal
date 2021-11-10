@@ -187,7 +187,7 @@ if page == 'Lineaire Regressie':
 
 
 
-st.write(""" Bron: https://www.kaggle.com/stefanoleone992/fifa-21-complete-player-dataset gebruikt voor de data.""")
+st.write(""" Bron: https://www.kaggle.com/stefanoleone992/fifa-21-complete-player-dataset""")
 
 st.write(""" ***""")
 
