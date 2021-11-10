@@ -25,10 +25,9 @@ page = st.sidebar.radio('Menu', page_names, index=1)
 
 if page == 'Hoofdmenu':
     st.markdown("""
-In dit dashboard hebben wij onderzocht welke aspecten/eigenschappen bijdragen aan een goede (potentiële) voetballer. 
-Dit hebben we inzichtelijk gemaakt met behulp van figuren.
-Tijdens het onderzoek hebben wij ons gefocust op de 23 beste spelers van de beste 10 landen. 
-We hebben gekeken naar zowel overall rating als potential rating. Voor het onderzoek hebben wij gebruik gemaakt van de datasets van FIFA 15 t/m FIFA 22. 
+In dit dashboard hebben wij onderzocht uit welke landen de beste voetbalspelers hebben en welke aspecten/eigenschappen bijdragen aan een goede (potentiële voetballler).
+Met behulp van figuren hebben wij dit inzichtelijk gemaakt. In het verloop van het onderzoek hebben wij ons gefocust op de 23 beste spelers van de beste 10 landen. 
+Voor het onderzoek hebben wij gebruik gemaakt van de datasets van FIFA 15 t/m FIFA 22 en hierbij hebben we gekeken naar zowel overall rating als potential rating. 
 Uit het onderzoek is naar voren gekomen dat de volgende aspecten/eigenschappen voorkomen bij goede voetballers (in fifa):
 \n
 •Afkostmig uit Argentinië, België, Brazilië, Engeland, Frankrijk, Duitsland, Italië, Nederland, Portugal of Spanje.
