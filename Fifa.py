@@ -31,8 +31,7 @@ if page == 'Hoofdmenu':
 
 #Lijngrafiek    
 elif page == 'Lijngrafiek':
-              
-linedata = pd.read_csv('linedata.csv')
+              linedata = pd.read_csv('linedata.csv')
 
 lijst_landen = ['Argentina', 'Belgium', 'Brazil', 'England', 'France', 'Germany', 'Italy', 'Netherlands', 'Portugal', 'Spain']
 gekozen_landen = st.multiselect("Kies een land", lijst_landen, lijst_landen)
@@ -78,8 +77,7 @@ elif page == 'Polar chart':
               
 #histogram
 elif page == 'Histogram':
-
-dfover = pd.read_csv('histover.csv')
+    dfover = pd.read_csv('histover.csv')
 dfpot = pd.read_csv('histpot.csv')
 
 plot = go.Figure(data=[go.Histogram(
@@ -121,7 +119,7 @@ st.plotly_chart(plot)
 
 #lineair regressie
 elif page == 'Lineaire Regressie':
-FIFA15_23 = pd.read_csv('FIFA15LIN.csv')
+    FIFA15_23 = pd.read_csv('FIFA15LIN.csv')
 FIFA22_23 = pd.read_csv('FIFA22LIN.csv')
 
 punt1 = pd.DataFrame({'overall': [93], 'value_eur': [54000000]})
