@@ -9,6 +9,8 @@ import plotly.figure_factory as ff
 import plotly.io as pio
 pio.templates.default = 'seaborn'
 import statsmodels.api as sm
+from plotly.subplots import make_subplots
+
 
 
 st.beta_set_page_config(layout = "wide")
