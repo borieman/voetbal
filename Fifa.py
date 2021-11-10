@@ -11,7 +11,7 @@ pio.templates.default = 'seaborn'
 import statsmodels.api as sm
 
 
-# st.beta_set_page_config(layout = "wide")
+st.beta_set_page_config(layout = "wide")
 
 st.title('Fifa dashboard')
 
@@ -22,6 +22,9 @@ Hiervoor hebben we https://www.kaggle.com/stefanoleone992/fifa-21-complete-playe
 st.write("""
 ***
 """)
+
+page_names = ['Hoofdmenu', 'Lijngrafiek', 'Boxplot', 'Kaartgrafiek', 'Polar chart']
+page = st.sidebar.radio('Menu', page_names, index=1)
 
 
 
