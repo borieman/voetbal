@@ -31,7 +31,7 @@ page = st.sidebar.radio('Menu', page_names, index=1)
 
 #Lijngrafiek    
 # if page == 'Lijngrafiek':
-    linedata = pd.read_csv('linedata.csv')
+linedata = pd.read_csv('linedata.csv')
 
 lijst_landen = ['Argentina', 'Belgium', 'Brazil', 'England', 'France', 'Germany', 'Italy', 'Netherlands', 'Portugal', 'Spain']
 gekozen_landen = st.multiselect("Kies een land", lijst_landen, lijst_landen)
@@ -59,7 +59,7 @@ st.plotly_chart(fig)
               
 #boxplot
 # if page == 'Boxplot':
-    boxdata = pd.read_csv('boxdata.csv')
+boxdata = pd.read_csv('boxdata.csv')
 
 box = px.box(boxdata, x='age', y='nationality', color='soort')
 box.update_layout(title='<b>Spreiding leeftijd Fifa 2022 voor overall en potential</b>', title_x= 0.5,
@@ -77,8 +77,8 @@ st.plotly_chart(box)
               
 #histogram
 # if page == 'Histogram':
-#     dfover = pd.read_csv('histover.csv')
-# dfpot = pd.read_csv('histpot.csv')
+dfover = pd.read_csv('histover.csv')
+dfpot = pd.read_csv('histpot.csv')
 
 plot = go.Figure(data=[go.Histogram(
     name = 'Overall',
@@ -119,7 +119,7 @@ st.plotly_chart(plot)
 
 #lineair regressie
 # if page == 'Lineaire Regressie':
-    FIFA15_23 = pd.read_csv('FIFA15LIN.csv')
+FIFA15_23 = pd.read_csv('FIFA15LIN.csv')
 FIFA22_23 = pd.read_csv('FIFA22LIN.csv')
 
 punt1 = pd.DataFrame({'overall': [93], 'value_eur': [54000000]})
