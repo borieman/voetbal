@@ -57,14 +57,14 @@ xaxis_title='Fifa jaar', yaxis_title='Rating')
 
 st.plotly_chart(fig)
               
-#boxplot
-elif page == 'Boxplot':
-    boxdata = pd.read_csv('boxdata.csv')
+# #boxplot
+# elif page == 'Boxplot':
+#     boxdata = pd.read_csv('boxdata.csv')
 
-box = px.box(boxdata, x='age', y='nationality', color='soort')
-box.update_layout(title='<b>Spreiding leeftijd Fifa 2022 voor overall en potential</b>', title_x= 0.5,
-                      xaxis_title='Leeftijd', yaxis_title='Landen', height=825, width=1475)
-st.plotly_chart(box)            
+# box = px.box(boxdata, x='age', y='nationality', color='soort')
+# box.update_layout(title='<b>Spreiding leeftijd Fifa 2022 voor overall en potential</b>', title_x= 0.5,
+#                       xaxis_title='Leeftijd', yaxis_title='Landen', height=825, width=1475)
+# st.plotly_chart(box)            
 
 #Kaart
 elif page == 'Kaartgrafiek':
