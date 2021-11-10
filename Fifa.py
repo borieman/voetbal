@@ -26,45 +26,45 @@ st.write("""
 page_names = ['Hoofdmenu', 'Lijngrafiek', 'Boxplot', 'Kaartgrafiek', 'Polar chart', 'Histogram', 'Lineaire Regressie']
 page = st.sidebar.radio('Menu', page_names, index=1)
 
-# if page == 'Hoofdmenu':
-#     st.subheader('HIER KOMT EEN SAMENVATTING OF CONCLUSIE')
+if page == 'Hoofdmenu':
+    st.subheader('HIER KOMT EEN SAMENVATTING OF CONCLUSIE')
 
 #Lijngrafiek    
-# if page == 'Lijngrafiek':
-linedata = pd.read_csv('linedata.csv')
+if page == 'Lijngrafiek':
+  linedata = pd.read_csv('linedata.csv')
 
-lijst_landen = ['Argentina', 'Belgium', 'Brazil', 'England', 'France', 'Germany', 'Italy', 'Netherlands', 'Portugal', 'Spain']
-gekozen_landen = st.multiselect("Kies een land", lijst_landen, lijst_landen)
+  lijst_landen = ['Argentina', 'Belgium', 'Brazil', 'England', 'France', 'Germany', 'Italy', 'Netherlands', 'Portugal', 'Spain']
+  gekozen_landen = st.multiselect("Kies een land", lijst_landen, lijst_landen)
 
-line_countries = linedata['nationality'].isin(gekozen_landen)
-data = linedata[line_countries]
+  line_countries = linedata['nationality'].isin(gekozen_landen)
+  data = linedata[line_countries]
 
-fig = px.line(data, x='fifa_jaar', y=['overall', 'potential'], color='nationality')
+  fig = px.line(data, x='fifa_jaar', y=['overall', 'potential'], color='nationality')
 
-dropdown_buttons = [{'label':"All", 'method':"update", 'args':
-[{"visible":[True]}]},
-{'label':"Overall", 'method':"update", 'args':
-[{"visible":[True, False]}]},
-{'label':"Potential", 'method':"update", 'args':
-[{"visible":[False, True]}]}]
+  dropdown_buttons = [{'label':"All", 'method':"update", 'args':
+  [{"visible":[True]}]},
+  {'label':"Overall", 'method':"update", 'args':
+  [{"visible":[True, False]}]},
+  {'label':"Potential", 'method':"update", 'args':
+  [{"visible":[False, True]}]}]
+  
+  fig.update_layout({'updatemenus':[{'type': "dropdown",'x': 1.23,'y': 0.30,
+  'showactive': True,'active': 0,'buttons': dropdown_buttons}]})
 
-fig.update_layout({'updatemenus':[{'type': "dropdown",'x': 1.23,'y': 0.30,
-'showactive': True,'active': 0,'buttons': dropdown_buttons}]})
-
-fig.update_layout(title='<b>Overall en potential rating per fifa per land</b>', title_x= 0.5,
-xaxis_title='Fifa jaar', yaxis_title='Rating')
+  fig.update_layout(title='<b>Overall en potential rating per fifa per land</b>', title_x= 0.5,
+  xaxis_title='Fifa jaar', yaxis_title='Rating')
 
 
-st.plotly_chart(fig)
+  st.plotly_chart(fig)
               
 #boxplot
-# if page == 'Boxplot':
-boxdata = pd.read_csv('boxdata.csv')
+if page == 'Boxplot':
+  boxdata = pd.read_csv('boxdata.csv')
 
-box = px.box(boxdata, x='age', y='nationality', color='soort')
-box.update_layout(title='<b>Spreiding leeftijd Fifa 2022 voor overall en potential</b>', title_x= 0.5,
+  box = px.box(boxdata, x='age', y='nationality', color='soort')
+  box.update_layout(title='<b>Spreiding leeftijd Fifa 2022 voor overall en potential</b>', title_x= 0.5,
                       xaxis_title='Leeftijd', yaxis_title='Landen', height=825, width=1475)
-st.plotly_chart(box)            
+  st.plotly_chart(box)            
 
 #Kaart
 # if page == 'Kaartgrafiek':
@@ -76,46 +76,46 @@ st.plotly_chart(box)
 #     st.write('moet nog komen!')              
               
 #histogram
-# if page == 'Histogram':
-dfover = pd.read_csv('histover.csv')
-dfpot = pd.read_csv('histpot.csv')
+if page == 'Histogram':
+  dfover = pd.read_csv('histover.csv')
+  dfpot = pd.read_csv('histpot.csv')
 
-plot = go.Figure(data=[go.Histogram(
-    name = 'Overall',
-    x= dfover['value_eur']
-),
-    go.Histogram(
-    name = 'Potential',
-    x=dfpot['value_eur']
-)
-])
+  plot = go.Figure(data=[go.Histogram(
+      name = 'Overall',
+      x= dfover['value_eur']
+  ),
+     go.Histogram(
+     name = 'Potential',
+     x=dfpot['value_eur']
+  )
+  ])
 
-plot.update_layout(
-    updatemenus=[
-        dict(
-            active=0,
-            buttons=list([
-                dict(label="Overall en Potential",
-                     method="update",
-                     args=[{"visible": [True, True]},
-                           ]),
-                dict(label="Overall",
-                     method="update",
-                     args=[{"visible": [True, False]},
-                           ]),
-                dict(label="Potential",
-                     method="update",
-                     args=[{"visible": [False, True]},
-                           ]),
-            ]),
-         x= 1.43,y= 0.8)
-    ])
+  plot.update_layout(
+     updatemenus=[
+          dict(
+              active=0,
+              buttons=list([
+                  dict(label="Overall en Potential",
+                       method="update",
+                       args=[{"visible": [True, True]},
+                             ]),
+                  dict(label="Overall",
+                       method="update",
+                       args=[{"visible": [True, False]},
+                             ]),
+                  dict(label="Potential",
+                       method="update",
+                      args=[{"visible": [False, True]},
+                            ]),
+              ]),
+           x= 1.43,y= 0.8)
+     ])
 
-plot.update_layout(title="<b>Waarde van spelers voor alle FIFA's</b>", title_x= 0.5,
-                  xaxis_title='Waarde van speler',
-                  yaxis_title='Aantal spelers')
+  plot.update_layout(title="<b>Waarde van spelers voor alle FIFA's</b>", title_x= 0.5,
+                    xaxis_title='Waarde van speler',
+                    yaxis_title='Aantal spelers')
   
-st.plotly_chart(plot)
+  st.plotly_chart(plot)
 
 #lineair regressie
 # if page == 'Lineaire Regressie':
