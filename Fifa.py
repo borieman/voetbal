@@ -31,7 +31,7 @@ if page == 'Hoofdmenu':
 
 #Lijngrafiek    
 if page == 'Lijngrafiek':
-              linedata = pd.read_csv('linedata.csv')
+    linedata = pd.read_csv('linedata.csv')
 
 lijst_landen = ['Argentina', 'Belgium', 'Brazil', 'England', 'France', 'Germany', 'Italy', 'Netherlands', 'Portugal', 'Spain']
 gekozen_landen = st.multiselect("Kies een land", lijst_landen, lijst_landen)
