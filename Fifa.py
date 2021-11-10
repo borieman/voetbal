@@ -23,7 +23,7 @@ st.write("""
 ***
 """)
 
-page_names = ['Hoofdmenu', 'Lijngrafiek', 'Boxplot', 'Kaartgrafiek', 'Polar chart', 'Histogram', 'Lineaire Regressie]
+page_names = ['Hoofdmenu', 'Lijngrafiek', 'Boxplot', 'Kaartgrafiek', 'Polar chart', 'Histogram', 'Lineaire Regressie']
 page = st.sidebar.radio('Menu', page_names, index=1)
 
 if page == 'Hoofdmenu':
