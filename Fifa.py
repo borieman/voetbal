@@ -68,7 +68,7 @@ st.plotly_chart(box)
 
 #Kaart
 # if page == 'Kaartgrafiek':
-    st.write('Die kaart komt later wel')   
+#     st.write('Die kaart komt later wel')   
               
 #polar chart
 # if page == 'Polar chart':
