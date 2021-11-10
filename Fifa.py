@@ -25,7 +25,7 @@ page = st.sidebar.radio('Menu', page_names, index=1)
 
 if page == 'Hoofdmenu':
     st.markdown("""
-In dit dashboard hebben wij onderzocht uit welke landen de beste voetbalspelers hebben en welke aspecten/eigenschappen bijdragen aan een goede (potentiële voetballler).
+In dit dashboard hebben wij onderzocht uit welke landen de beste voetbalspelers hebben en welke aspecten/eigenschappen bijdragen aan een goede (potentiële) voetballler.
 Met behulp van figuren hebben wij dit inzichtelijk gemaakt. In het verloop van het onderzoek hebben wij ons gefocust op de 23 beste spelers van de beste 10 landen. 
 Voor het onderzoek hebben wij gebruik gemaakt van de datasets van FIFA 15 t/m FIFA 22 en hierbij hebben we gekeken naar zowel overall rating als potential rating. 
 Uit het onderzoek is naar voren gekomen dat de volgende aspecten/eigenschappen voorkomen bij goede voetballers (in fifa):
@@ -83,8 +83,156 @@ if page == 'Kaartgrafiek':
               
 #polar chart
 if page == 'Polar chart':
-    st.subheader('Polar chart')
-    st.write('moet nog komen!')              
+    PC22_23 = pd.read_csv('PolarChartOverall.csv')
+    PC22_23P = pd.read_csv('PolarChartPotential.csv')
+    
+    theta = ['Pace', 'Shooting', 'Passing', 'Dribbling', 'Defending', 'Physic', 'Pace']
+
+    # Adding stats to every country
+    Argentina_stats = [76, 76, 77, 82, 57, 74, 76]
+    Belgium_stats = [74, 71, 76, 78, 59, 72, 74]
+    Brazil_stats = [74, 68, 75, 78, 70, 77, 74]
+    England_stats = [76, 67, 77, 79, 66, 74, 76]
+    France_stats = [81, 69, 75, 80, 63, 76, 81]
+    Germany_stats = [71, 74, 78, 78, 65, 75, 71]
+    Italy_stats = [74, 65, 72, 77, 68, 73, 74]
+    Netherlands_stats = [73, 69, 73, 76, 66, 78, 73]
+    Portugal_stats = [73, 72, 77, 80, 64, 73, 73]
+    Spain_stats = [72, 71, 80, 81, 69, 71,  72]
+
+    # Adding stats to every country
+    Argentina_statsP = [78, 68, 72, 78, 55, 68, 78]
+    Belgium_statsP = [75, 65, 70, 75, 53, 67, 75]
+    Brazil_statsP = [81, 67, 71, 79, 56, 71, 81]
+    England_statsP = [79, 67, 73, 79, 56, 67, 79]
+    France_statsP = [80, 61, 72, 78, 66, 74, 80]
+    Germany_statsP = [73, 67, 74, 76, 61, 70, 73]
+    Italy_statsP = [73, 64, 70, 76, 64, 72, 73]
+    Netherlands_statsP = [78, 63, 68, 74, 58, 74, 78]
+    Portugal_statsP = [78, 70, 72, 79, 55, 70, 78]
+    Spain_statsP = [73, 70, 77, 79, 64, 69, 73]
+    
+
+    fig = make_subplots(rows=1, cols=3, 
+                    specs=[[{'type': 'xy'}, {"type": "polar"}, {'type': 'xy'},]],
+                    column_widths=[0.3, 0.7, 0.3])
+
+    fig.add_trace(go.Scatterpolar(r=Argentina_stats, theta=theta, fill='toself',
+             hovertemplate='<b>%{theta}</b>' + f'<b>: '+'%{r}', showlegend=False, name='Argentina',
+             line=dict(color='Aqua')), row=1, col=2)
+
+    fig.add_trace(go.Scatterpolar(r=Belgium_stats, theta=theta, fill='toself',
+             hovertemplate='<b>%{theta}</b>' + f'<b>: '+'%{r}', showlegend=False, name='Belgium',
+             line=dict(color='Crimson')), row=1, col=2)
+
+    fig.add_trace(go.Scatterpolar(r=Brazil_stats, theta=theta, fill='toself',
+             hovertemplate='<b>%{theta}</b>' + f'<b>: '+'%{r}', showlegend=False, name='Brazil',
+             line=dict(color='Yellow')), row=1, col=2)
+
+    fig.add_trace(go.Scatterpolar(r=England_stats, theta=theta, fill='toself',
+             hovertemplate='<b>%{theta}</b>' + f'<b>: '+'%{r}', showlegend=False, name='England',
+             line=dict(color='White')), row=1, col=2)
+
+    fig.add_trace(go.Scatterpolar(r=France_stats, theta=theta, fill='toself',
+             hovertemplate='<b>%{theta}</b>' + f'<b>: '+'%{r}', showlegend=False, name='France',
+             line=dict(color='Black')), row=1, col=2)
+
+    fig.add_trace(go.Scatterpolar(r=Germany_stats, theta=theta, fill='toself',
+             hovertemplate='<b>%{theta}</b>' + f'<b>: '+'%{r}', showlegend=False, name='Germany',
+             line=dict(color='Gray')), row=1, col=2)
+
+    fig.add_trace(go.Scatterpolar(r=Italy_stats, theta=theta, fill='toself',
+             hovertemplate='<b>%{theta}</b>' + f'<b>: '+'%{r}', showlegend=False, name='Italy',
+             line=dict(color='Navy')), row=1, col=2)
+
+    fig.add_trace(go.Scatterpolar(r=Netherlands_stats, theta=theta, fill='toself',
+             hovertemplate='<b>%{theta}</b>' + f'<b>: '+'%{r}', showlegend=False, name='Netherlands',
+             line=dict(color='Orange')), row=1, col=2)
+
+    fig.add_trace(go.Scatterpolar(r=Portugal_stats, theta=theta, fill='toself',
+             hovertemplate='<b>%{theta}</b>' + f'<b>: '+'%{r}', showlegend=False, name='Portugal',
+             line=dict(color='Darkgreen')), row=1, col=2)
+
+    fig.add_trace(go.Scatterpolar(r=Spain_stats, theta=theta, fill='toself',
+             hovertemplate='<b>%{theta}</b>' + f'<b>: '+'%{r}', showlegend=False, name='Spain',
+             line=dict(color='Red')), row=1, col=2)
+
+    fig.add_trace(go.Scatterpolar(r=Argentina_statsP, theta=theta, fill='toself',
+             hovertemplate='<b>%{theta}</b>' + f'<b>: '+'%{r}', showlegend=False, name='Argentina',
+             line=dict(color='Aqua')), row=1, col=2)
+
+    fig.add_trace(go.Scatterpolar(r=[Belgium_statsP, Brazil_statsP], theta=theta, fill='toself',
+             hovertemplate='<b>%{theta}</b>' + f'<b>: '+'%{r}', showlegend=False, name='Belgium',
+             line=dict(color='Crimson')), row=1, col=2)
+
+    fig.add_trace(go.Scatterpolar(r=Brazil_statsP, theta=theta, fill='toself',
+             hovertemplate='<b>%{theta}</b>' + f'<b>: '+'%{r}', showlegend=False, name='Brazil',
+             line=dict(color='Yellow')), row=1, col=2)
+
+    fig.add_trace(go.Scatterpolar(r=England_statsP, theta=theta, fill='toself',
+             hovertemplate='<b>%{theta}</b>' + f'<b>: '+'%{r}', showlegend=False, name='England',
+             line=dict(color='White')), row=1, col=2)
+
+    fig.add_trace(go.Scatterpolar(r=France_statsP, theta=theta, fill='toself',
+             hovertemplate='<b>%{theta}</b>' + f'<b>: '+'%{r}', showlegend=False, name='France',
+             line=dict(color='Black')), row=1, col=2)
+
+    fig.add_trace(go.Scatterpolar(r=Germany_statsP, theta=theta, fill='toself',
+             hovertemplate='<b>%{theta}</b>' + f'<b>: '+'%{r}', showlegend=False, name='Germany',
+             line=dict(color='Gray')), row=1, col=2)
+
+    fig.add_trace(go.Scatterpolar(r=Italy_statsP, theta=theta, fill='toself',
+             hovertemplate='<b>%{theta}</b>' + f'<b>: '+'%{r}', showlegend=False, name='Italy',
+             line=dict(color='Navy')), row=1, col=2)
+
+    fig.add_trace(go.Scatterpolar(r=Netherlands_statsP, theta=theta, fill='toself',
+             hovertemplate='<b>%{theta}</b>' + f'<b>: '+'%{r}', showlegend=False, name='Netherlands',
+             line=dict(color='Orange')), row=1, col=2)
+
+    fig.add_trace(go.Scatterpolar(r=Portugal_statsP, theta=theta, fill='toself',
+             hovertemplate='<b>%{theta}</b>' + f'<b>: '+'%{r}', showlegend=False, name='Portugal',
+             line=dict(color='Darkgreen')), row=1, col=2)
+
+    fig.add_trace(go.Scatterpolar(r=Spain_statsP, theta=theta, fill='toself',
+             hovertemplate='<b>%{theta}</b>' + f'<b>: '+'%{r}', showlegend=False, name='Spain',
+             line=dict(color='Red')), row=1, col=2)
+
+    fig.update_layout(
+        title=f'<b>Gemiddelde stats per land</b>',
+         paper_bgcolor = "rgb(223, 223, 223)",
+        polar=dict(
+            bgcolor = "rgb(223, 223, 223)",
+             radialaxis=dict(
+                        visible = True,
+                        range = [50, 85]
+                            )
+                   ), 
+        template='xgridoff',
+        font=dict(
+                  family='Arials',
+                  size=16, 
+                  color='Black'
+                 )
+    )
+
+    Polardropdown = [{'label':"All", 'method':"update", 'args':[{"visible":[
+        True, True, True, True, True, True, True, True, True, True, 
+        True, True, True, True, True, True, True, True, True, True]}]},
+                     {'label':"None", 'method':"update", 'args':[{"visible":[
+        False, False, False, False, False, False, False, False, False, False, 
+        False, False, False, False, False, False, False, False, False, False]}]},
+                 {'label':"Overall", 'method':"update", 'args':[{"visible":[
+        True, True, True, True, True, True, True, True, True, True, 
+        False, False, False, False, False, False, False, False, False, False]}]},
+                 {'label':"Potential", 'method':"update", 'args':[{"visible":[
+        False, False, False, False, False, False, False, False, False, False, 
+        True, True, True, True, True, True, True, True, True, True]}]}]
+
+    fig.update_layout({'updatemenus':[{'type': "dropdown",'x': 0,'y': 1.4,
+                                       'showactive': True,'active': 0,'buttons': Polardropdown}]})
+
+    st.plotly_chart(fig)
+             
               
 #histogram
 if page == 'Histogram':
