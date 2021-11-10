@@ -118,7 +118,7 @@ plot.update_layout(title="<b>Waarde van spelers voor alle FIFA's</b>", title_x= 
 st.plotly_chart(plot)
 
 #lineair regressie
-else page == 'Lineaire Regressie':
+if page == 'Lineaire Regressie':
     FIFA15_23 = pd.read_csv('FIFA15LIN.csv')
 FIFA22_23 = pd.read_csv('FIFA22LIN.csv')
 
