@@ -25,7 +25,8 @@ page = st.sidebar.radio('Menu', page_names, index=1)
 
 if page == 'Hoofdmenu':
     st.markdown("""
-In dit dashboard hebben wij onderzocht welke aspecten/eigenschappen bijdragen aan een goede (potentiële) voetballer.
+In dit dashboard hebben wij onderzocht welke aspecten/eigenschappen bijdragen aan een goede (potentiële) voetballer. 
+Dit hebben we inzichtelijk gemaakt met behulp van figuren.
 Tijdens het onderzoek hebben wij ons gefocust op de 23 beste spelers van de beste 10 landen. 
 We hebben gekeken naar zowel overall rating als potential rating. Voor het onderzoek hebben wij gebruik gemaakt van de datasets van FIFA 15 t/m FIFA 22. 
 Uit het onderzoek is naar voren gekomen dat de volgende aspecten/eigenschappen voorkomen bij goede voetballers (in fifa):
@@ -200,7 +201,7 @@ st.write(""" ***""")
 st.markdown("""
 Gemaakt door:
 \n
-Martijn Draper 
+Martijn Draper 500888847
 \n
 Boris van Dam 500831201 """)
 
