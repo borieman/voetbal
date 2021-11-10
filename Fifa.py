@@ -34,8 +34,12 @@ Uit het onderzoek is naar voren gekomen dat de volgende aspecten/eigenschappen v
 \n
 •Een leeftijd rond de 30. De overall rating van oudere spelers is hoger dan die van jongere spelers (wel hebben jongere spelers een hoge potential rating).
 \n
-•Een hoge waarde. Er is een verband tussen overall rating en waarde van een speler. """)
-
+•Een hoge waarde. Er is een verband tussen overall rating en waarde van een speler. 
+\n
+\n
+\n
+Bron: https://www.kaggle.com/stefanoleone992/fifa-21-complete-player-dataset """) 
+    
 #Lijngrafiek    
 if page == 'Lijngrafiek':
   linedata = pd.read_csv('linedata.csv')
@@ -187,7 +191,6 @@ if page == 'Lineaire Regressie':
 
 
 
-st.write(""" Bron: https://www.kaggle.com/stefanoleone992/fifa-21-complete-player-dataset""")
 
 st.write(""" ***""")
 
