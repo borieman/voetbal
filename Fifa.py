@@ -70,7 +70,7 @@ if page == 'Boxplot':
 if page == 'Kaartgrafiek':
     st.write('Die kaart komt later wel')   
               
-polar chart
+#polar chart
 if page == 'Polar chart':
     st.subheader('Polar chart')
     st.write('moet nog komen!')              
