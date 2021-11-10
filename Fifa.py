@@ -120,63 +120,63 @@ if page == 'Histogram':
 
 
 #lineair regressie
-# if page == 'Lineaire Regressie':
-FIFA15_23 = pd.read_csv('FIFA15LIN.csv')
-FIFA22_23 = pd.read_csv('FIFA22LIN.csv')
+if page == 'Lineaire Regressie':
+    FIFA15_23 = pd.read_csv('FIFA15LIN.csv')
+    FIFA22_23 = pd.read_csv('FIFA22LIN.csv')
 
-punt1 = pd.DataFrame({'overall': [93], 'value_eur': [54000000]})
-punt2 = pd.DataFrame({'overall': [93], 'value_eur': [116000000]})
+    punt1 = pd.DataFrame({'overall': [93], 'value_eur': [54000000]})
+    punt2 = pd.DataFrame({'overall': [93], 'value_eur': [116000000]})
 
-FIFA15_23['bestfit'] = sm.OLS(FIFA15_23['value_eur'],sm.add_constant(FIFA15_23['overall'])).fit().fittedvalues
-FIFA22_23['bestfit'] = sm.OLS(FIFA22_23['value_eur'],sm.add_constant(FIFA22_23['overall'])).fit().fittedvalues
-
-
-lin123 = go.Figure(data=[go.Scatter(
-    name = 'FIFA15',
-    x= FIFA15_23['overall'], y = FIFA15_23['value_eur'], mode='markers'
-),
-    go.Scatter(
-    name = 'FIFA22',
-    x=FIFA22_23['overall'], y = FIFA22_23['value_eur'], mode='markers'
-),
-    go.Scatter(name='Lineaire regressielijn FIFA15', x=FIFA15_23['overall'], y=FIFA15_23['bestfit'], mode='lines'
-),  
-    go.Scatter(name='Lineaire regressielijn FIFA22', x=FIFA22_23['overall'], y=FIFA22_23['bestfit'], mode='lines'
-),
-    go.Scatter(name='R2 & RSE FIFA15', x= punt1['overall'], y=punt1['value_eur'], mode='markers+text', text = "R2 = 0.728,RSE = 6450317",textposition = 'top left'
-), 
-    go.Scatter(name='R2 & RSE FIFA22', x= punt2['overall'], y=punt2['value_eur'], mode='markers+text', text = "R2 = 0.556,RSE = 19672194",textposition = 'bottom left')
+    FIFA15_23['bestfit'] = sm.OLS(FIFA15_23['value_eur'],sm.add_constant(FIFA15_23['overall'])).fit().fittedvalues
+    FIFA22_23['bestfit'] = sm.OLS(FIFA22_23['value_eur'],sm.add_constant(FIFA22_23['overall'])).fit().fittedvalues
 
 
-])
+    lin123 = go.Figure(data=[go.Scatter(
+        name = 'FIFA15',
+           x= FIFA15_23['overall'], y = FIFA15_23['value_eur'], mode='markers'
+    ),
+        go.Scatter(
+        name = 'FIFA22',
+        x=FIFA22_23['overall'], y = FIFA22_23['value_eur'], mode='markers'
+    ),
+        go.Scatter(name='Lineaire regressielijn FIFA15', x=FIFA15_23['overall'], y=FIFA15_23['bestfit'], mode='lines'
+    ),  
+       go.Scatter(name='Lineaire regressielijn FIFA22', x=FIFA22_23['overall'], y=FIFA22_23['bestfit'], mode='lines'
+    ),
+       go.Scatter(name='R2 & RSE FIFA15', x= punt1['overall'], y=punt1['value_eur'], mode='markers+text', text = "R2 = 0.728,RSE = 6450317",textposition = 'top left'
+    ), 
+        go.Scatter(name='R2 & RSE FIFA22', x= punt2['overall'], y=punt2['value_eur'], mode='markers+text', text = "R2 = 0.556,RSE = 19672194",textposition = 'bottom left')
 
-lin123.update_layout(
-    updatemenus=[
-        dict(
-            active=0,
-            buttons=list([
-                dict(label="FIFA15 & FIFA22",
-                     method="update",
-                     args=[{"visible": [True, True, True, True, True, True]},
-                          ]),
-                dict(label="FIFA15",
-                     method="update",
-                     args=[{"visible": [True, False, True, False, True, False]},
-                           ]),
-                dict(label="FIFA22",
-                     method="update",
-                     args=[{"visible": [False, True, False, True, False, True]},
-                            ]),
-                
-            ]),
-        x= 1.3,y= 0.4)
+
     ])
+
+    lin123.update_layout(
+       updatemenus=[
+            dict(
+                active=0,
+               buttons=list([
+                    dict(label="FIFA15 & FIFA22",
+                         method="update",
+                         args=[{"visible": [True, True, True, True, True, True]},
+                              ]),
+                 dict(label="FIFA15",
+                         method="update",
+                         args=[{"visible": [True, False, True, False, True, False]},
+                               ]),
+                  dict(label="FIFA22",
+                         method="update",
+                         args=[{"visible": [False, True, False, True, False, True]},
+                                ]),
+                
+             ]),
+         x= 1.3,y= 0.4)
+       ])
         
-lin123.update_layout(title='<b>Lineaire regressie overall rating en waarde speler FIFA15 & FIFA22</b>', title_x= 0.5,
+    lin123.update_layout(title='<b>Lineaire regressie overall rating en waarde speler FIFA15 & FIFA22</b>', title_x= 0.5,
                   xaxis_title='Overall rating',
                   yaxis_title='Waarde speler', width = 1000)
 
-st.plotly_chart(lin123)
+    st.plotly_chart(lin123)
 
 
 
