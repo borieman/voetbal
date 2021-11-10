@@ -119,7 +119,7 @@ if page == 'Histogram':
                        args=[{"visible": [False, True]},
                               ]),
               ]),
-          x= 1.35,y= 0.8)
+          x= 1.38,y= 0.8)
        ])
 
   plot.update_layout(title="<b>Waarde van spelers voor alle FIFA's</b>", title_x= 0.5,
