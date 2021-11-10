@@ -25,8 +25,13 @@ page = st.sidebar.radio('Menu', page_names, index=1)
 
 if page == 'Hoofdmenu':
     st.markdown("""
-In dit dashboard hebben wij onderzocht ... . We hebben dit gedaan op basis van FIFA 15 t/m FIFA 22. 
-Hiervoor hebben we https://www.kaggle.com/stefanoleone992/fifa-21-complete-player-dataset gebruikt voor de data.""")
+In dit dashboard hebben wij onderzocht welke aspecten/eigenschappen bijdragen aan een goede (potentiële) voetballer. 
+Tijdens het onderzoek hebben wij ons gefocust op de 23 beste spelers van de beste 10 landen. 
+We hebben gekeken naar zowel overall rating als potential rating. Voor het onderzoek hebben wij gebruik gemaakt van de datasets van FIFA 15 t/m FIFA 22. 
+Uit het onderzoek is naar voren gekomen dat de volgende aspecten/eigenschappen voorkomen bij goede voetballers (in fifa):
+•Afkostmig uit Argentinië, België, Brazilië, Engeland, Frankrijk, Duitsland, Italië, Nederland, Portugal of Spanje.
+•Een leeftijd rond de 30. De overall rating van oudere spelers is hoger dan die van jongere spelers (wel hebben jongere spelers een hoge potential rating).
+•Een hoge waarde. Er is een verband tussen overall rating en waarde van een speler. """)
 
 #Lijngrafiek    
 if page == 'Lijngrafiek':
@@ -80,11 +85,11 @@ if page == 'Histogram':
   dfpot = pd.read_csv('histpot.csv')
 
   plot = go.Figure(data=[go.Histogram(
-        name = 'dfover',
+        name = 'Overall Rating',
         x= dfover['value_eur']
     ),
         go.Histogram(
-        name = 'dfpot',
+        name = 'Potential Rating',
         x=dfpot['value_eur']
     )
     ])
@@ -107,7 +112,7 @@ if page == 'Histogram':
                        args=[{"visible": [False, True]},
                               ]),
               ]),
-          x= 1.2,y= 0.8)
+          x= 1.26,y= 0.8)
        ])
 
   plot.update_layout(title="<b>Waarde van spelers voor alle FIFA's</b>", title_x= 0.5,
@@ -179,9 +184,11 @@ if page == 'Lineaire Regressie':
 
 
 
-st.write("""
-***
-""")
+st.write(""" Bron: https://www.kaggle.com/stefanoleone992/fifa-21-complete-player-dataset gebruikt voor de data.""")
+
+st.write(""" ***""")
+
+
 
 
 st.markdown("""
@@ -190,3 +197,4 @@ Gemaakt door:
 Martijn Draper 
 \n
 Boris van Dam 500831201 """)
+
